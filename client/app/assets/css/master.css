@@ -1,0 +1,24 @@
+
+
+
+
+.search-bars-btn{
+  float: right;
+}
+
+
+
+#chart_div {
+  height: 600px;
+  width: 100%;
+}
+
+.stock-label{
+  border: 1px solid #ddd;
+}
+
+.close-stock {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}

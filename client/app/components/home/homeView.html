@@ -1,0 +1,25 @@
+
+<form ng-submit="getStocks()" >
+  
+  <div id="chart_div"></div>
+  
+  <div class="row">
+    <div ng-repeat="stock in stocks" class="col-md-4 stock-label">
+        <h3>{{stock.dataset_code}}</h3>
+        <p>{{stock.name}}</p>
+        <div class="close-stock btn btn-default" ng-click="removeStock(stock.dataset_code)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
+    </div>
+  </div>
+  
+  <div class="form-group col-md-4 col-md-offset-4">
+    
+    <button type="submit" class="btn btn-primary search-bars-btn"><span class="glyphicon glyphicon-ok"></span> Mark It!</button>
+    <div style="overflow: hidden; padding-right: .5em;">
+      <input type="text" class="form-control search-bars" placeholder="Stock Code" ng-model="formData.stock_code" required></input>
+    </div>
+  </div>
+  
+  
+</form>      
