@@ -2,10 +2,9 @@ var socket = io.connect();
 angular.module('stock-mark-it')
     .controller('MainCtrl', [
       '$scope',
-      'home',
       'chart',
       'stock',
-      function($scope, home, chart, stock){
+      function($scope, chart, stock){
         var formData = {};
         $scope.formData = formData;
         $scope.getStocks = getStocksUser;
