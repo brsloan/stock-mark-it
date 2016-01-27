@@ -1,6 +1,8 @@
 
 
-
+.search-container{
+  margin-top: 12px;
+}
 
 .search-bars-btn{
   float: right;
@@ -15,6 +17,8 @@
 
 .stock-label{
   border: 1px solid #ddd;
+  height: 110px;
+  overflow: hidden;
 }
 
 .close-stock {

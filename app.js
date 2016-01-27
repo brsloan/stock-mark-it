@@ -4,14 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var passport = require('passport');
+//var mongoose = require('mongoose');
+//var passport = require('passport');
 var dotenv = require('dotenv');
 dotenv.load();
 
-require('./server/config/passport');
-
-mongoose.connect(process.env.MONGO_URI);
+//mongoose.connect(process.env.MONGO_URI);
 
 var indexRoutes = require('./server/components/index/indexRoutes.server.js');
 
@@ -61,6 +59,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 module.exports = app;

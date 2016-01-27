@@ -22,6 +22,40 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
+ * Attach web sockets
+ */
+
+var io = require('socket.io').listen(server);
+
+var stocks = [];
+
+io.sockets.on('connection', function(socket){
+
+   io.sockets.emit('preload', {stocks: stocks});
+
+   socket.on('removeStock', function(stock){
+       var data = { 'stock' : stock };
+       console.log('remove stock: ' + stock);
+       var stockIndex = stocks.indexOf(stock.toLowerCase());
+       if(stockIndex > -1 && stocks.length > 1)
+        stocks.splice(stockIndex,1);
+       console.log(stocks);
+       socket.broadcast.emit('removeStock', data);
+   });
+   
+   socket.on('addStock', function(stock){
+       var data = { 'stock' : stock };
+       console.log('add stock: ' + stock);
+       if(stocks.indexOf(stock) == -1){
+         stocks.push(stock.toLowerCase());
+        console.log(stocks);
+        socket.broadcast.emit('addStock', data);
+       }
+   });
+   
+});
+
+/**
  * Listen on provided port, on all network interfaces.
  */
 

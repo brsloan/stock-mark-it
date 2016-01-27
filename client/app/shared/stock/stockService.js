@@ -12,7 +12,7 @@ angular.module('stock-mark-it')
        function getStocks(name, callback){
            //Don't get stock info if it's already in the array
            if(stock.stocks.filter(function(dataset){
-               return dataset.dataset_code === name;
+               return dataset.dataset_code.toUpperCase() === name.toUpperCase();
            }).length > 0){ return; }
            
           
