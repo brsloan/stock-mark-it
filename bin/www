@@ -27,7 +27,7 @@ var server = http.createServer(app);
 
 var io = require('socket.io').listen(server);
 
-var stocks = [];
+var stocks = ['goog','amzn','aapl'];
 
 io.sockets.on('connection', function(socket){
 
